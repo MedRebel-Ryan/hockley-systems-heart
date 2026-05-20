@@ -1272,16 +1272,18 @@
      ═══════════════════════════════════════════════════════════════════════ */
   .fork-page {
     background: #FAFBFC;
-    padding: 72px;
+    padding: 56px 64px 52px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
   }
   .fork-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 36px;
+    margin-bottom: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--gray-200);
   }
   .fork-header img { height: 24px; }
   .fork-header-label {
@@ -1291,13 +1293,14 @@
     text-transform: uppercase;
     color: var(--cyan-dark);
   }
+  .fork-intro { margin-top: 42px; }
   .fork-eyebrow {
     font-size: 11px;
     font-weight: 700;
     letter-spacing: 3.4px;
     text-transform: uppercase;
     color: var(--cyan-dark);
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
   .fork-eyebrow::before {
     content: '';
@@ -1308,33 +1311,33 @@
     margin-right: 12px;
   }
   .fork-title {
-    font-size: 56px;
+    font-size: 68px;
     font-weight: 900;
     color: var(--navy);
-    letter-spacing: -1.8px;
+    letter-spacing: -2.2px;
     line-height: 1.0;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
   }
   .fork-subtitle {
-    font-size: 19px;
+    font-size: 22px;
     color: var(--gray-600);
     font-weight: 500;
-    margin-bottom: 44px;
+    margin-bottom: 0;
     line-height: 1.4;
   }
   .fork-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 22px;
-    margin-bottom: 38px;
+    gap: 24px;
+    margin: 0;
   }
   .fork-card {
     border-radius: 14px;
-    padding: 32px 30px;
+    padding: 38px 34px;
     position: relative;
     display: flex;
     flex-direction: column;
-    min-height: 290px;
+    min-height: 370px;
   }
   .fork-card-short {
     background: white;
@@ -1368,18 +1371,18 @@
   .fork-card-short .fork-card-eyebrow { color: var(--gray-600); }
   .fork-card-long .fork-card-eyebrow { color: var(--cyan); }
   .fork-card-heading {
-    font-size: 38px;
+    font-size: 46px;
     font-weight: 900;
-    letter-spacing: -1px;
+    letter-spacing: -1.4px;
     line-height: 1;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
   }
   .fork-card-short .fork-card-heading { color: var(--navy); }
   .fork-card-long .fork-card-heading { color: white; }
   .fork-card-desc {
-    font-size: 14.5px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 24px;
     flex: 1;
   }
   .fork-card-short .fork-card-desc { color: var(--gray-800); }
@@ -1409,8 +1412,8 @@
   .fork-nudge {
     background: white;
     border-left: 3px solid var(--cyan);
-    padding: 20px 24px;
-    font-size: 15px;
+    padding: 24px 28px;
+    font-size: 16px;
     line-height: 1.55;
     color: var(--gray-800);
     border-radius: 0 8px 8px 0;
@@ -1633,7 +1636,7 @@
     <div class="fork-header-label" style="color: var(--gray-600);">Choose Your Read</div>
   </div>
 
-  <div>
+  <div class="fork-intro">
     <div class="fork-eyebrow">For the Busy Practice Owner</div>
     <div class="fork-title">Choose Your Format.</div>
     <div class="fork-subtitle">Two paths in. Same destination.</div>
