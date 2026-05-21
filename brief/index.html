@@ -58,11 +58,11 @@
     box-sizing: border-box;
   }
 
-  /* Page 1 - HOOK (navy hero) */
+  /* Page 1 - HOOK */
   .p1 {
     background: var(--navy);
     color: white;
-    padding: 64px 72px 56px;
+    padding: 56px 64px 48px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -70,7 +70,7 @@
   }
   .p1-logo img { height: 48px; display: block; }
   .p1-eyebrow {
-    margin-top: 38px;
+    margin-top: 36px;
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 3.4px;
@@ -86,49 +86,51 @@
     margin-right: 12px;
   }
   .p1-headline {
-    margin-top: 18px;
-    font-size: 96px;
+    margin-top: 16px;
+    font-size: 92px;
     font-weight: 900;
     line-height: 0.93;
     letter-spacing: -3.5px;
   }
   .p1-headline .accent { color: var(--cyan); }
   .p1-subhead {
-    margin-top: 32px;
-    font-size: 26px;
+    margin-top: 28px;
+    font-size: 25px;
     line-height: 1.32;
     color: rgba(255,255,255,0.92);
     font-weight: 500;
     max-width: 620px;
   }
   .p1-setup {
-    margin-top: 28px;
+    margin-top: 22px;
     font-size: 16px;
     line-height: 1.6;
     color: rgba(255,255,255,0.78);
-    max-width: 600px;
+    max-width: 620px;
   }
+  .p1-setup strong { color: white; font-weight: 700; }
   .p1-doctors {
-    display: flex; gap: 28px;
+    display: flex; gap: 26px;
     margin-top: 32px;
+    flex-wrap: wrap;
   }
-  .p1-doc { display: flex; align-items: center; gap: 14px; }
+  .p1-doc { display: flex; align-items: center; gap: 16px; }
   .p1-doc-circle {
-    width: 64px; height: 64px;
+    width: 96px; height: 96px;
     border-radius: 50%;
-    border: 2px solid var(--cyan);
+    border: 3px solid var(--cyan);
     overflow: hidden;
     background: var(--navy-light);
     flex-shrink: 0;
   }
   .p1-doc-circle img { width: 108%; height: 108%; object-fit: cover; margin: -4%; display: block; }
-  .p1-doc-text .n { font-size: 14px; font-weight: 800; color: white; line-height: 1.05; }
-  .p1-doc-text .o { font-size: 11px; color: rgba(255,255,255,0.6); font-weight: 500; margin-top: 3px; }
+  .p1-doc-text .n { font-size: 16px; font-weight: 800; color: white; line-height: 1.05; }
+  .p1-doc-text .o { font-size: 12px; color: rgba(255,255,255,0.65); font-weight: 500; margin-top: 4px; line-height: 1.35; }
 
-  /* Shared page header for pages 2 + 3 */
+  /* Shared page header */
   .pg-header {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 38px 72px 22px;
+    padding: 38px 56px 22px;
     border-bottom: 1px solid var(--gray-200);
   }
   .pg-header-logo img { height: 22px; display: block; }
@@ -147,7 +149,7 @@
     border-radius: 50%; margin-right: 8px;
     vertical-align: middle;
   }
-  .pg-content { padding: 36px 72px 56px; }
+  .pg-content { padding: 32px 56px 44px; }
   .pg-eyebrow {
     font-size: 11px; font-weight: 700;
     letter-spacing: 3.2px; color: var(--cyan-dark);
@@ -162,30 +164,34 @@
   .pg-title {
     font-size: 44px; font-weight: 900;
     color: var(--navy); letter-spacing: -1.4px;
-    line-height: 1.02; margin: 14px 0 12px;
+    line-height: 1.02; margin: 12px 0 12px;
   }
   .pg-rule {
     width: 44px; height: 3px;
-    background: var(--cyan); margin-bottom: 18px;
+    background: var(--cyan); margin-bottom: 16px;
   }
   .pg-lead {
-    font-size: 17px; line-height: 1.55;
+    font-size: 16px; line-height: 1.55;
     color: var(--gray-800); font-weight: 500;
-    max-width: 600px; margin-bottom: 18px;
+    max-width: 640px; margin-bottom: 16px;
   }
 
-  /* Page 2 - PROOF */
-  .stat-grid {
+  /* Page 2 - 6-tile stat grid */
+  .stat-grid-6 {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 22px 0 26px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 18px 0 18px;
   }
   .stat-tile {
-    padding: 24px 26px;
+    padding: 20px 22px;
     border-radius: 10px;
     background: var(--navy);
     color: white;
+    min-height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
   .stat-tile.alt {
     background: white;
@@ -193,42 +199,43 @@
     border: 2px solid var(--gray-200);
   }
   .stat-num {
-    font-size: 52px; font-weight: 900;
+    font-size: 38px; font-weight: 900;
     color: var(--cyan);
-    letter-spacing: -2px; line-height: 1;
+    letter-spacing: -1.4px; line-height: 1;
   }
   .stat-tile.alt .stat-num { color: var(--navy); }
   .stat-tile.alt .stat-num .pct { color: var(--cyan); }
+  .stat-num.small { font-size: 28px; letter-spacing: -1px; }
   .stat-lbl {
-    font-size: 12px; font-weight: 700;
-    letter-spacing: 1.8px; text-transform: uppercase;
-    margin-top: 12px;
-    color: rgba(255,255,255,0.7);
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 1.6px; text-transform: uppercase;
+    margin-top: 10px;
+    color: rgba(255,255,255,0.72);
   }
   .stat-tile.alt .stat-lbl { color: var(--gray-600); }
   .stat-note {
-    font-size: 13px; font-weight: 500;
-    margin-top: 6px;
-    color: rgba(255,255,255,0.55);
-    line-height: 1.4;
+    font-size: 12px; font-weight: 500;
+    margin-top: 4px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.35;
   }
   .stat-tile.alt .stat-note { color: var(--gray-600); }
 
   .mini-table {
     width: 100%; border-collapse: collapse;
-    margin: 14px 0 22px;
-    font-size: 14px;
+    margin: 8px 0 18px;
+    font-size: 13.5px;
   }
   .mini-table th {
-    text-align: left; padding: 10px 12px;
+    text-align: left; padding: 9px 12px;
     background: var(--gray-50);
     color: var(--navy);
-    font-size: 11px; font-weight: 700;
-    letter-spacing: 1.6px; text-transform: uppercase;
+    font-size: 10.5px; font-weight: 700;
+    letter-spacing: 1.5px; text-transform: uppercase;
     border-bottom: 2px solid var(--cyan);
   }
   .mini-table td {
-    padding: 10px 12px;
+    padding: 8px 12px;
     border-bottom: 1px solid var(--gray-200);
     color: var(--gray-800);
   }
@@ -242,37 +249,58 @@
   .pull-q {
     background: var(--gray-50);
     border-left: 3px solid var(--cyan);
-    padding: 22px 26px;
+    padding: 16px 22px;
     border-radius: 0 10px 10px 0;
-    margin-top: 16px;
+    margin-top: 10px;
   }
   .pull-q-text {
-    font-size: 18px; line-height: 1.4;
+    font-size: 16px; line-height: 1.4;
     color: var(--navy); font-weight: 500;
     font-style: italic;
   }
   .pull-q-attr {
-    margin-top: 12px;
-    font-size: 12px; font-weight: 700;
+    margin-top: 10px;
+    font-size: 11px; font-weight: 700;
     color: var(--cyan-dark);
     letter-spacing: 1.4px; text-transform: uppercase;
   }
 
   /* Page 3 - SYSTEM + CTA */
+  .stagger-title {
+    font-size: 46px; font-weight: 900;
+    letter-spacing: -1.6px;
+    line-height: 1.02;
+    margin: 12px 0 14px;
+  }
+  .stagger-title .navy { color: var(--navy); }
+  .stagger-title .cyan { color: var(--cyan); }
+
+  .ai-frame {
+    background: var(--gray-50);
+    border-left: 3px solid var(--cyan);
+    padding: 14px 18px;
+    border-radius: 0 8px 8px 0;
+    margin: 14px 0 20px;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--gray-800);
+  }
+  .ai-frame strong { color: var(--navy); font-weight: 700; }
+
   .pillars {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 18px 0 26px;
+    gap: 12px;
+    margin: 6px 0 18px;
   }
   .pillar {
-    padding: 22px 22px;
+    padding: 18px 18px;
     background: white;
     border: 1px solid var(--gray-200);
     border-radius: 10px;
   }
   .pillar-name {
-    font-size: 17px; font-weight: 800;
+    font-size: 15px; font-weight: 800;
     color: var(--navy);
     margin-bottom: 6px;
     display: flex; align-items: center;
@@ -280,29 +308,48 @@
   .pillar-name::before {
     content: '';
     display: inline-block;
-    width: 8px; height: 8px;
+    width: 7px; height: 7px;
     background: var(--cyan);
-    margin-right: 10px; flex-shrink: 0;
+    margin-right: 9px; flex-shrink: 0;
   }
   .pillar-text {
-    font-size: 14px; line-height: 1.5;
+    font-size: 12.5px; line-height: 1.5;
     color: var(--gray-800);
   }
-  .closing {
-    font-size: 17px; line-height: 1.55;
-    color: var(--gray-800); font-weight: 500;
-    margin: 14px 0 28px;
+  .pillar-text .ai-tag {
+    color: var(--cyan-dark);
+    font-weight: 700;
+    font-size: 10px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-right: 4px;
   }
-  .closing strong { color: var(--navy); font-weight: 700; }
+
+  .reframe {
+    background: var(--navy);
+    color: white;
+    padding: 20px 24px;
+    border-radius: 10px;
+    margin: 12px 0 18px;
+    text-align: center;
+  }
+  .reframe-text {
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+  }
+  .reframe-text .cyan { color: var(--cyan); }
 
   .ctas {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-top: 18px;
+    gap: 12px;
+    margin-top: 14px;
   }
   .cta-card {
-    padding: 28px 26px;
+    padding: 20px 22px;
     border-radius: 10px;
     text-decoration: none;
     display: block;
@@ -319,68 +366,68 @@
     color: var(--navy);
   }
   .cta-eyebrow {
-    font-size: 10px; font-weight: 700;
+    font-size: 9.5px; font-weight: 700;
     letter-spacing: 2.2px; text-transform: uppercase;
     color: var(--cyan);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
   .cta-secondary .cta-eyebrow { color: var(--cyan-dark); }
   .cta-heading {
-    font-size: 22px; font-weight: 800;
+    font-size: 19px; font-weight: 800;
     line-height: 1.1; letter-spacing: -0.4px;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
   .cta-sub {
-    font-size: 13px;
+    font-size: 12px;
     color: rgba(255,255,255,0.65);
-    margin-top: 8px;
+    margin-top: 6px;
+    line-height: 1.4;
   }
   .cta-secondary .cta-sub { color: var(--gray-600); }
   .cta-arrow {
-    margin-top: 10px;
-    font-size: 14px; font-weight: 700;
+    margin-top: 8px;
+    font-size: 12.5px; font-weight: 700;
   }
 
   .brief-footer {
-    margin-top: 32px;
-    padding-top: 18px;
+    margin-top: 18px;
+    padding-top: 14px;
     border-top: 1px solid var(--gray-200);
     display: flex; justify-content: space-between; align-items: center;
-    font-size: 11px; color: var(--gray-600); font-weight: 500;
+    font-size: 10.5px; color: var(--gray-600); font-weight: 500;
     letter-spacing: 1px;
   }
 
-  /* MOBILE RESPONSIVE */
+  /* MOBILE */
   @media (max-width: 900px) {
     :root { --page-width: 100%; --margin: 24px; }
     body { background: #f3f4f5; -webkit-text-size-adjust: 100%; }
-    .page { width: 100%; max-width: 100%; min-height: 0; margin: 0 auto;
-            box-shadow: none; border-bottom: 1px solid #e1e3e6; }
+    .page { width: 100%; max-width: 100%; min-height: 0; margin: 0 auto; box-shadow: none; border-bottom: 1px solid #e1e3e6; }
     .page:last-child { border-bottom: none; }
     .p1 { padding: 36px 22px; min-height: auto; }
     .p1-headline { font-size: 52px; letter-spacing: -1.5px; }
     .p1-subhead { font-size: 19px; margin-top: 22px; }
     .p1-setup { font-size: 15.5px; }
-    .p1-doctors { flex-wrap: wrap; gap: 14px; }
+    .p1-doctors { flex-direction: column; gap: 14px; }
+    .p1-doc-circle { width: 78px; height: 78px; }
     .pg-header { padding: 26px 22px 18px; flex-wrap: wrap; gap: 8px; }
     .pg-content { padding: 26px 22px 36px; }
-    .pg-title { font-size: 30px; }
+    .pg-title, .stagger-title { font-size: 32px; }
     .pg-lead { font-size: 15.5px; }
-    .stat-grid, .pillars, .ctas {
+    .stat-grid-6, .pillars, .ctas {
       display: flex !important;
       flex-direction: column !important;
       gap: 12px !important;
       grid-template-columns: none !important;
     }
-    .stat-num { font-size: 42px; }
-    .pull-q-text { font-size: 16px; }
-    .cta-heading { font-size: 20px; }
+    .stat-num { font-size: 36px; }
+    .pull-q-text { font-size: 15.5px; }
+    .reframe-text { font-size: 17px; }
   }
 
   @media print {
     body { background: white; }
-    .page { margin: 0; box-shadow: none; page-break-after: always;
-             break-after: page; height: var(--page-height); overflow: hidden; }
+    .page { margin: 0; box-shadow: none; page-break-after: always; break-after: page; height: var(--page-height); overflow: hidden; }
     .page:last-child { page-break-after: auto; }
     @page { size: 8.5in 11in; margin: 0; }
   }
@@ -395,7 +442,7 @@
     <div class="p1-eyebrow">Hockley Dental &nbsp;·&nbsp; 3-Minute Exec Brief</div>
     <h1 class="p1-headline">Systems<br><span class="accent">+</span> <span class="accent">Heart</span></h1>
     <div class="p1-subhead">What if 230 new patients a month was the least exciting part of the story?</div>
-    <p class="p1-setup">Two practice owners. Seven operatories. NW Houston. By every external measure, Hockley Dental was working. The cracks were quieter. The system that built them could not hold what they had built. This is the 3-minute version of what changed.</p>
+    <p class="p1-setup">Two practice owners. Seven operatories. NW Houston. By every external measure, Hockley Dental was working. But there is a version of success in independent dentistry that feels like failure from the inside. <strong>Full schedule. Empty tank.</strong> Every day harder than the one before it.</p>
   </div>
   <div class="p1-doctors">
     <div class="p1-doc">
@@ -422,42 +469,52 @@
   </div>
   <div class="pg-content">
     <div class="pg-eyebrow">The Numbers</div>
-    <h2 class="pg-title">What 18 months<br>of systems looks like.</h2>
+    <h2 class="pg-title">The Numbers<br>Tell the Story.</h2>
     <div class="pg-rule"></div>
-    <p class="pg-lead">Not a marketing surge. Not a one-month spike. A sustained pattern across patient flow, collections, and operations. Tracked directly from the practice management system.</p>
+    <p class="pg-lead">Not a marketing surge. Not a one-month spike. A sustained pattern across production, patient flow, conversion, and team retention.</p>
 
-    <div class="stat-grid">
+    <div class="stat-grid-6">
       <div class="stat-tile">
+        <div class="stat-num small">$454,850</div>
+        <div class="stat-lbl">Production / Month</div>
+        <div class="stat-note">Peak month. Climbed from ~$361K.</div>
+      </div>
+      <div class="stat-tile alt">
         <div class="stat-num">230</div>
         <div class="stat-lbl">New Patients</div>
-        <div class="stat-note">Single-month peak. Baseline was 140.</div>
-      </div>
-      <div class="stat-tile alt">
-        <div class="stat-num">96.8<span class="pct">%</span></div>
-        <div class="stat-lbl">Collection Rate</div>
-        <div class="stat-note">Up from 94.2% at baseline.</div>
-      </div>
-      <div class="stat-tile alt">
-        <div class="stat-num">93:1</div>
-        <div class="stat-lbl">ROI</div>
-        <div class="stat-note">On MedRebel monthly investment.</div>
+        <div class="stat-note">Single-month peak.</div>
       </div>
       <div class="stat-tile">
+        <div class="stat-num">93:1</div>
+        <div class="stat-lbl">ROI</div>
+        <div class="stat-note">On MedRebel investment.</div>
+      </div>
+      <div class="stat-tile alt">
         <div class="stat-num">$70K</div>
-        <div class="stat-lbl">Added Monthly Revenue</div>
-        <div class="stat-note">On a $750 conservative net new cost.</div>
+        <div class="stat-lbl">Added Revenue</div>
+        <div class="stat-note">Additional monthly revenue.</div>
+      </div>
+      <div class="stat-tile">
+        <div class="stat-num">75<span class="pct">%+</span></div>
+        <div class="stat-lbl">Conversion Rate</div>
+        <div class="stat-note">Lead to scheduled appointment.</div>
+      </div>
+      <div class="stat-tile alt">
+        <div class="stat-num small">5-Year Low</div>
+        <div class="stat-lbl">Staff Turnover</div>
+        <div class="stat-note">Lowest in practice history.</div>
       </div>
     </div>
 
     <table class="mini-table">
       <thead>
-        <tr><th>Period</th><th>New Patients</th><th>Collection</th></tr>
+        <tr><th>Period</th><th>New Patients</th><th>Total Production</th></tr>
       </thead>
       <tbody>
-        <tr><td>Baseline (avg)</td><td>140</td><td>94.2%</td></tr>
-        <tr><td>Month 3</td><td>215</td><td>96.4%</td></tr>
-        <tr><td>Month 5 (Peak)</td><td>230</td><td>96.8%</td></tr>
-        <tr><td>Month 6</td><td>218</td><td>96.5%</td></tr>
+        <tr><td>Month 1</td><td>175</td><td>$360,959</td></tr>
+        <tr><td>Month 3</td><td>215</td><td>$393,034</td></tr>
+        <tr><td>Month 4</td><td>225</td><td>$451,511</td></tr>
+        <tr><td>Month 5 (Peak)</td><td>230</td><td>$454,850</td></tr>
       </tbody>
     </table>
 
@@ -477,30 +534,35 @@
   </div>
   <div class="pg-content">
     <div class="pg-eyebrow">Leadership OS &nbsp;·&nbsp; Management System</div>
-    <h2 class="pg-title">Why a system beats<br>more marketing.</h2>
+    <h2 class="stagger-title"><span class="navy">Why a</span> <span class="cyan">Leadership Operating System</span><br><span class="navy">beats more</span> <span class="cyan">Marketing.</span></h2>
     <div class="pg-rule"></div>
-    <p class="pg-lead">Hockley did not grow because they spent more. They grew because the work became visible, owned, and consistent. That is what a management system does for an independent practice.</p>
+
+    <div class="ai-frame">
+      <strong>MedRebel is not an AI tool. It is an operating system.</strong> AI runs the busy work in the background, the call summaries, the follow-up drafts, the compliance docs, the lead scoring. Doctors and staff stay focused on patients and decisions that move the practice.
+    </div>
 
     <div class="pillars">
       <div class="pillar">
-        <div class="pillar-name">Leadership Visibility</div>
-        <div class="pillar-text">Daily clarity on what is happening across the practice. No more managing by hallway conversation.</div>
+        <div class="pillar-name">Leadership Visibility &amp; KPIs</div>
+        <div class="pillar-text">Daily dashboards: production, calls, leads, conversion, hygiene reappointment. <span class="ai-tag">AI</span> summarizes calls and surfaces what needs the owner's attention.</div>
       </div>
       <div class="pillar">
         <div class="pillar-name">Patient Communication</div>
-        <div class="pillar-text">Faster response, calmer team, higher acceptance. The phones stop being the weak point.</div>
+        <div class="pillar-text">Two-way texting, automated reminders, missed-call recovery, lead routing. <span class="ai-tag">AI</span> drafts replies and follow-ups so the front office runs faster.</div>
       </div>
       <div class="pillar">
         <div class="pillar-name">Cost Consolidation</div>
-        <div class="pillar-text">One operating layer replaces multiple legacy vendors. Less software fatigue. Real savings.</div>
+        <div class="pillar-text">One operating layer replaces patient comm, legacy phone, dashboards, SEO. Real savings: $1,250+/month vs. legacy vendors.</div>
       </div>
       <div class="pillar">
-        <div class="pillar-name">HR + Compliance</div>
-        <div class="pillar-text">Built in. PTO, handbook, HIPAA training, sign-offs. No more spreadsheets, no more missed renewals.</div>
+        <div class="pillar-name">HR + Compliance, Built In</div>
+        <div class="pillar-text">PTO, calendar, sign-offs, HIPAA training, AEO visibility. <span class="ai-tag">AI</span> generates state-compliant handbooks and policies on demand.</div>
       </div>
     </div>
 
-    <p class="closing"><strong>Independent dentistry will not be saved by another ad campaign or another shiny tool.</strong> It will be held by leadership systems that make the practice run regardless of who is in the building.</p>
+    <div class="reframe">
+      <div class="reframe-text">When practice owners have more time to <span class="cyan">LEAD</span>, everyone wins.</div>
+    </div>
 
     <div class="ctas">
       <a href="/" class="cta-card cta-primary">
