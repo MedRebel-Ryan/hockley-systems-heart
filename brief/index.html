@@ -48,24 +48,33 @@
     -webkit-text-size-adjust: 100%;
   }
 
-  /* ── COVER (identical to long-form) ── */
+  /* ── COVER (web-native: full-bleed bg, centered max-width content) ── */
   .cover {
     background: var(--navy);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: var(--margin);
+    padding: 80px 24px 72px;
+  }
+  .cover > * {
+    width: 100%;
+    max-width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .cover-logo { margin-bottom: auto; }
-  .cover-logo img { height: 36px; }
+  .cover-logo img { height: 44px; }
   .cover-doctors {
     display: flex;
-    gap: 24px;
-    margin: 60px 0 48px;
+    gap: 28px;
+    margin: 60px auto 48px;
     justify-content: flex-start;
+    max-width: 1080px;
+    width: 100%;
+    flex-wrap: wrap;
   }
   .doctor-circle {
-    width: 130px; height: 130px;
+    width: 140px; height: 140px;
     border-radius: 50%;
     border: 3px solid var(--cyan);
     background: var(--navy-light);
@@ -80,28 +89,28 @@
     margin: -4%;
   }
   .cover-eyebrow {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--cyan);
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
   }
   .cover-title {
-    font-size: 82px;
+    font-size: 124px;
     font-weight: 900;
     color: var(--white);
     line-height: 0.95;
-    letter-spacing: -3px;
-    margin-bottom: 28px;
+    letter-spacing: -4px;
+    margin-bottom: 32px;
   }
   .cover-subtitle {
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 400;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.6;
-    max-width: 480px;
-    margin-bottom: 48px;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.45;
+    max-width: 640px;
+    margin-bottom: 40px;
   }
   .cover-rule {
     width: 64px; height: 3px;
@@ -109,12 +118,12 @@
     margin-bottom: 48px;
   }
   .cover-byline {
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
     font-weight: 400;
   }
   .cover-byline strong {
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.8);
     font-weight: 600;
   }
 
@@ -480,11 +489,12 @@
   /* ─────────── MOBILE ─────────── */
   @media (max-width: 900px) {
     .cover { padding: 36px 22px; min-height: auto; }
+    .cover-logo img { height: 32px; }
     .cover-doctors { flex-wrap: wrap; gap: 18px; margin: 38px 0 32px; }
     .doctor-circle { width: 92px; height: 92px; }
-    .cover-eyebrow { font-size: 13px; letter-spacing: 2px; }
-    .cover-title { font-size: 44px; letter-spacing: -1.5px; }
-    .cover-subtitle { font-size: 16px; margin-bottom: 32px; }
+    .cover-eyebrow { font-size: 12px; letter-spacing: 2px; margin-bottom: 14px; }
+    .cover-title { font-size: 56px; letter-spacing: -2px; margin-bottom: 22px; }
+    .cover-subtitle { font-size: 17px; margin-bottom: 32px; line-height: 1.4; }
 
     .section { padding: 56px 20px; }
     .sec-title, .stagger-title { font-size: 34px; letter-spacing: -1px; }
