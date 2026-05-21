@@ -297,44 +297,71 @@
   }
   .ai-frame strong { color: var(--navy); font-weight: 700; }
 
-  /* Pillars */
-  .pillars {
+  /* Six Principles (leadership-guide format) */
+  .principles {
+    margin: 8px 0 32px;
+  }
+  .principle {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin: 8px 0 28px;
+    grid-template-columns: 88px 1fr;
+    gap: 28px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--gray-200);
+    align-items: start;
   }
-  .pillar {
-    padding: 26px 26px;
-    background: white;
-    border: 1px solid var(--gray-200);
-    border-radius: 12px;
+  .principle:last-child { border-bottom: none; }
+  .principle-num {
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--cyan);
+    line-height: 1;
+    letter-spacing: -2px;
   }
-  .pillar-name {
-    font-size: 18px; font-weight: 800;
+  .principle-title {
+    font-size: 22px;
+    font-weight: 800;
     color: var(--navy);
+    letter-spacing: -0.4px;
+    line-height: 1.2;
     margin-bottom: 10px;
-    display: flex; align-items: center;
   }
-  .pillar-name::before {
-    content: '';
-    display: inline-block;
-    width: 8px; height: 8px;
-    background: var(--cyan);
-    margin-right: 11px; flex-shrink: 0;
-  }
-  .pillar-text {
-    font-size: 14.5px; line-height: 1.55;
+  .principle-text {
+    font-size: 16px;
+    line-height: 1.62;
     color: var(--gray-800);
+    margin-bottom: 12px;
   }
-  .pillar-text .ai-tag {
-    color: var(--cyan-dark);
+  .principle-tag {
+    font-size: 12px;
     font-weight: 700;
-    font-size: 10.5px;
-    letter-spacing: 1.4px;
+    letter-spacing: 0.6px;
+    color: var(--cyan-dark);
+    font-style: italic;
+    padding-left: 12px;
+    border-left: 2px solid var(--cyan);
+    line-height: 1.5;
+  }
+
+  .advantage-box {
+    background: var(--navy);
+    color: white;
+    padding: 32px 36px;
+    border-radius: 12px;
+    margin-top: 22px;
+  }
+  .advantage-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
     text-transform: uppercase;
-    display: inline-block;
-    margin-right: 5px;
+    color: var(--cyan);
+    margin-bottom: 12px;
+  }
+  .advantage-box p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.92);
+    font-weight: 500;
   }
 
   /* Reframe (full-bleed navy hero) */
@@ -443,6 +470,16 @@
       grid-template-columns: 1fr;
       gap: 12px;
     }
+    .principle {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 22px 0;
+    }
+    .principle-num { font-size: 38px; }
+    .principle-title { font-size: 19px; }
+    .principle-text { font-size: 15.5px; }
+    .advantage-box { padding: 24px 22px; }
+    .advantage-box p { font-size: 16px; }
     .stat-num { font-size: 42px; }
     .stat-num.small { font-size: 30px; }
     .pull-q-text { font-size: 16.5px; }
@@ -568,31 +605,70 @@
       <div class="sec-header-folio">Section 2</div>
     </div>
 
-    <div class="sec-eyebrow">Leadership OS &nbsp;·&nbsp; Management System</div>
-    <h2 class="stagger-title"><span class="navy">Why a</span> <span class="cyan">Leadership Operating System</span><br><span class="navy">beats more</span> <span class="cyan">Marketing.</span></h2>
+    <div class="sec-eyebrow">Lessons from Hockley</div>
+    <h2 class="sec-title">Six Principles for the<br>Independent Practice.</h2>
     <div class="sec-rule"></div>
+    <p class="sec-lead">Everything Hockley Dental built came back to six principles. Not complicated. Not expensive. Principles any independent practice can act on this week.</p>
 
-    <div class="ai-frame">
-      <strong>MedRebel is not an AI tool. It is an operating system.</strong> AI runs the busy work in the background, the call summaries, the follow-up drafts, the compliance docs, the lead scoring. Doctors and staff stay focused on patients and decisions that move the practice.
+    <div class="principles">
+      <div class="principle">
+        <div class="principle-num">01</div>
+        <div class="principle-body">
+          <div class="principle-title">Stop Being the Operating System</div>
+          <p class="principle-text">Dr. Bessey and Dr. Gonzales had become the unofficial operating system of the practice, identifying problems, diagnosing the cause, tasking the team. That kind of leadership pulls the doctor out of the chair and into a management role that compounds. The practice keeps growing, but the doctor's margin keeps shrinking. The job is to lead the practice and care for patients, not to chase missed calls and fill every operational gap.</p>
+          <div class="principle-tag">Where MedRebel fits: daily visibility so the practice runs without the doctor in every conversation.</div>
+        </div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-num">02</div>
+        <div class="principle-body">
+          <div class="principle-title">Build Systems That Protect the Soul</div>
+          <p class="principle-text">Independent practices have something corporate dentistry cannot replicate: real relationships with patients, teams that build trust over years, decisions made by people who live with the consequences. But soul without systems becomes exhausting, because it runs on memory, extra effort, and the same few people absorbing every problem. The independent advantage is not heart instead of systems. It is systems that protect the heart.</p>
+          <div class="principle-tag">Where MedRebel fits: an operating layer that absorbs the busy work so the human work stays human.</div>
+        </div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-num">03</div>
+        <div class="principle-body">
+          <div class="principle-title">Treat Communication Like Infrastructure</div>
+          <p class="principle-text">Communication is not a soft skill inside a healthcare office. It is infrastructure. When calls, texts, forms, and follow-up live in scattered systems, the team becomes the integration layer, exhausted by invisible work. When the system carries the context forward, the team can carry the care.</p>
+          <div class="principle-tag">Where MedRebel fits: one operating layer for phone, text, lead routing, and follow-up.</div>
+        </div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-num">04</div>
+        <div class="principle-body">
+          <div class="principle-title">Let the Numbers Tell the Story</div>
+          <p class="principle-text">A spike can be explained away. A sustained climb cannot. Numbers do not matter because they look impressive in a report. They matter because they reveal whether the practice is getting healthier, week over week.</p>
+          <div class="principle-tag">Where MedRebel fits: daily KPI dashboards that make the pattern visible before the problem escalates.</div>
+        </div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-num">05</div>
+        <div class="principle-body">
+          <div class="principle-title">Turn Culture Into a Competitive Advantage</div>
+          <p class="principle-text">Corporate dental groups can outspend independent practices on marketing and recruiting bonuses, but they cannot replicate the culture inside your office. Culture is the lived experience of the team every day. Reward publicly. Correct privately. Always. That single discipline builds more trust than any team-building exercise.</p>
+          <div class="principle-tag">Where MedRebel fits: HR, training, and team rituals built into the operating system, not bolted on.</div>
+        </div>
+      </div>
+
+      <div class="principle">
+        <div class="principle-num">06</div>
+        <div class="principle-body">
+          <div class="principle-title">Automate Busy Work. Empower Human Work.</div>
+          <p class="principle-text">AI belongs in the background of dentistry, not in front of the patient. Use it to summarize calls, surface patterns, create follow-up tasks, and give leadership the full picture before they respond. Then let the team do what only people can do: listen, coach, apologize, reassure, build trust.</p>
+          <div class="principle-tag">Where MedRebel fits: AI runs the back office. People run the practice.</div>
+        </div>
+      </div>
     </div>
 
-    <div class="pillars">
-      <div class="pillar">
-        <div class="pillar-name">Leadership Visibility &amp; KPIs</div>
-        <div class="pillar-text">Daily dashboards: production, calls, leads, conversion, hygiene reappointment. <span class="ai-tag">AI</span> summarizes calls and surfaces what needs the owner's attention.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-name">Patient Communication</div>
-        <div class="pillar-text">Two-way texting, automated reminders, missed-call recovery, lead routing. <span class="ai-tag">AI</span> drafts replies and follow-ups so the front office runs faster.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-name">Cost Consolidation</div>
-        <div class="pillar-text">One operating layer replaces patient comm, legacy phone, dashboards, SEO. Real savings: $1,250+/month vs. legacy vendors.</div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-name">HR + Compliance, Built In</div>
-        <div class="pillar-text">PTO, calendar, sign-offs, HIPAA training, AEO visibility. <span class="ai-tag">AI</span> generates state-compliant handbooks and policies on demand.</div>
-      </div>
+    <div class="advantage-box">
+      <div class="advantage-title">The Independent Advantage</div>
+      <p>Corporate practices have systems but no soul. Independent practices have soul but no systems. The future belongs to the practices that build both, and the tools to do it have never been more accessible.</p>
     </div>
   </div>
 </section>
