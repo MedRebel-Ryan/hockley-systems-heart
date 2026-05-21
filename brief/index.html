@@ -186,6 +186,31 @@
     max-width: 720px; margin-bottom: 32px;
   }
 
+  /* Practice context bar */
+  .practice-context {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 22px;
+    background: white;
+    border: 1px solid var(--gray-200);
+    border-left: 3px solid var(--cyan);
+    border-radius: 0 8px 8px 0;
+    margin: 6px 0 24px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--gray-800);
+  }
+  .practice-context strong {
+    color: var(--navy);
+    font-weight: 800;
+  }
+  .practice-context .ctx-sep {
+    color: var(--cyan);
+    font-weight: 700;
+  }
+
   /* Stat grid */
   .stat-grid-6 {
     display: grid;
@@ -470,6 +495,9 @@
       grid-template-columns: 1fr;
       gap: 12px;
     }
+    .practice-context { font-size: 13px; padding: 12px 16px; gap: 8px; }
+    .practice-context .ctx-sep { display: none; }
+    .practice-context span { display: block; }
     .principle {
       grid-template-columns: 1fr;
       gap: 8px;
@@ -544,6 +572,16 @@
     <div class="sec-rule"></div>
     <p class="sec-lead">These are not lucky months. They are the visible signal that the operation underneath got healthier. New patient flow, production, conversion, and team retention all moved the same direction in the same year.</p>
 
+    <div class="practice-context">
+      <span><strong>Hockley Dental</strong></span>
+      <span class="ctx-sep">·</span>
+      <span>2 Practice Owners</span>
+      <span class="ctx-sep">·</span>
+      <span>7 Operatories</span>
+      <span class="ctx-sep">·</span>
+      <span>NW Houston, TX</span>
+    </div>
+
     <div class="stat-grid-6">
       <div class="stat-tile">
         <div class="stat-num small">$454,850</div>
@@ -568,7 +606,7 @@
       <div class="stat-tile">
         <div class="stat-num">75<span class="pct">%+</span></div>
         <div class="stat-lbl">Conversion Rate</div>
-        <div class="stat-note">Lead to scheduled appointment.</div>
+        <div class="stat-note">Up from 45%. Lead to scheduled appointment.</div>
       </div>
       <div class="stat-tile alt">
         <div class="stat-num small">5-Year Low</div>
@@ -579,15 +617,16 @@
 
     <table class="mini-table">
       <thead>
-        <tr><th>Period</th><th>New Patients</th><th>Total Production</th></tr>
+        <tr><th>Period</th><th>New Patients</th><th>Total Production</th><th>Active Patients</th></tr>
       </thead>
       <tbody>
-        <tr><td>Month 1</td><td>175</td><td>$360,959</td></tr>
-        <tr><td>Month 3</td><td>215</td><td>$393,034</td></tr>
-        <tr><td>Month 4</td><td>225</td><td>$451,511</td></tr>
-        <tr><td>Month 5 (Peak)</td><td>230</td><td>$454,850</td></tr>
+        <tr><td>Month 1</td><td>175</td><td>$360,959</td><td>4,476</td></tr>
+        <tr><td>Month 3</td><td>215</td><td>$393,034</td><td>4,721</td></tr>
+        <tr><td>Month 4</td><td>225</td><td>$451,511</td><td>4,868</td></tr>
+        <tr><td>Month 5 (Peak)</td><td>230</td><td>$454,850</td><td>5,001</td></tr>
       </tbody>
     </table>
+    <p style="font-size:12px; color:var(--gray-600); margin-top:-12px; margin-bottom:24px; font-style:italic;">Active patient base grew by 525 in 5 months. Net new patients retained, not just acquired.</p>
 
     <div class="pull-q">
       <div class="pull-q-text">"Growth you cannot hold is not growth. It is pressure with better-looking numbers."</div>
