@@ -1697,6 +1697,34 @@
       padding-right: max(24px, calc((100% - 1080px) / 2));
     }
   }
+
+  /* ── COVER mobile bio stack: doctors as vertical list, each row = circle left + text right ── */
+  @media (max-width: 900px) {
+    .cover-doctors {
+      flex-direction: column !important;
+      align-items: stretch !important;
+      gap: 22px !important;
+      margin: 36px 0 28px !important;
+    }
+    .cover-doctors > div {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+      gap: 16px !important;
+      max-width: 100% !important;
+      text-align: left !important;
+    }
+    .cover-doctors > div > div {
+      text-align: left !important;
+    }
+    .doctor-circle {
+      width: 86px !important;
+      height: 86px !important;
+      margin: 0 !important;
+      flex-shrink: 0;
+    }
+  }
+
 </style>
 </head>
 <body>
