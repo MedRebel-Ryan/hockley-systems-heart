@@ -341,32 +341,70 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
   }
 
   /* Result */
-  .result-score-wrap {
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-    margin-bottom: 12px;
-  }
-  .result-score {
-    font-size: 72px;
-    font-weight: 900;
-    color: var(--cyan);
-    letter-spacing: -3px;
-    line-height: 1;
-  }
-  .result-total {
-    font-size: 22px;
-    color: var(--gray-600);
-    font-weight: 600;
-  }
   .result-eyebrow {
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 2.6px;
     text-transform: uppercase;
     color: var(--cyan-dark);
-    margin-bottom: 12px;
+    margin-bottom: 14px;
   }
+  .scorecard {
+    background: linear-gradient(135deg, var(--navy) 0%, #15263A 100%);
+    border-radius: 16px;
+    padding: 30px 32px 26px;
+    margin-bottom: 28px;
+    color: white;
+    box-shadow: 0 12px 32px -16px rgba(13, 27, 42, 0.4);
+  }
+  .scorecard-row {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .scorecard-number {
+    font-size: 96px;
+    font-weight: 900;
+    color: var(--cyan);
+    letter-spacing: -4px;
+    line-height: 0.9;
+  }
+  .scorecard-outof {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+  .scorecard-bar-track {
+    height: 10px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+  }
+  .scorecard-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan-dark) 0%, var(--cyan) 100%);
+    border-radius: 5px;
+    width: 0;
+    transition: width 0.7s cubic-bezier(.22,1,.36,1);
+  }
+  .scorecard-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 11px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .scorecard-bar-labels span { flex: 1; text-align: center; }
+  .scorecard-bar-labels span:first-child { text-align: left; }
+  .scorecard-bar-labels span:last-child { text-align: right; }
+  .scorecard-bar-labels span.active { color: var(--cyan); }
   .result-tier {
     font-size: 48px;
     font-weight: 900;
@@ -458,7 +496,9 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
     .answer-letter { width: 24px; height: 24px; font-size: 11px; }
     .email-step h2 { font-size: 28px; }
     .email-step p { font-size: 15.5px; }
-    .result-score { font-size: 56px; }
+    .scorecard { padding: 24px 22px 22px; }
+    .scorecard-number { font-size: 72px; letter-spacing: -3px; }
+    .scorecard-bar-labels { font-size: 8.5px; letter-spacing: 0.7px; gap: 6px; }
     .result-tier { font-size: 32px; letter-spacing: -1px; }
     .result-desc { font-size: 15.5px; padding: 22px 22px; }
     .result-ctas { grid-template-columns: 1fr; }
@@ -516,9 +556,20 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
   <!-- Result -->
   <section class="step result" id="step-result">
     <div class="result-eyebrow">Your Diagnostic Result</div>
-    <div class="result-score-wrap">
-      <div class="result-score" id="resultScore">0</div>
-      <div class="result-total">/ 24</div>
+    <div class="scorecard">
+      <div class="scorecard-row">
+        <div class="scorecard-number" id="resultScore">0</div>
+        <div class="scorecard-outof">out of 24</div>
+      </div>
+      <div class="scorecard-bar-track">
+        <div class="scorecard-bar-fill" id="scoreFill"></div>
+      </div>
+      <div class="scorecard-bar-labels" id="scoreLabels">
+        <span>Firefighting</span>
+        <span>In Transition</span>
+        <span>Operationally Mature</span>
+        <span>Leadership Mode</span>
+      </div>
     </div>
     <h2 class="result-tier" id="resultTier">Tier</h2>
     <div class="result-desc" id="resultDesc">Description.</div>
@@ -610,8 +661,8 @@ const QUESTIONS = [
     q: "How often do you feel like a care provider trapped inside an air traffic controller's job?",
     a: [
       { t: "Daily. The clinical work is great, but the mental tax of answering staff questions and tracking loose details is exhausting.", s: 0 },
-      { t: "Only on heavy days when staff are short-handed or turnover hits us.", s: 1 },
-      { t: "Fluctuates week to week, but I'm always the one putting out the fires.", s: 2 },
+      { t: "Fluctuates week to week, but I'm always the one putting out the fires.", s: 1 },
+      { t: "Only on heavy days when staff are short-handed or turnover hits us.", s: 2 },
       { t: "Almost never. The system holds the details, so I stay in clinical mode instead of running floor traffic.", s: 3 }
     ]
   },
@@ -736,6 +787,19 @@ function showResult() {
   document.getElementById('resultScore').textContent = total;
   document.getElementById('resultTier').textContent = tier.name + '.';
   document.getElementById('resultDesc').innerHTML = tier.desc;
+  // Animate the scorecard bar to user's position (0–24 scale)
+  const pct = Math.max(2, Math.round((total / 24) * 100));
+  setTimeout(() => {
+    const fill = document.getElementById('scoreFill');
+    if (fill) fill.style.width = pct + '%';
+  }, 120);
+  // Highlight the tier label that matches the score
+  const labels = document.querySelectorAll('#scoreLabels span');
+  const tierIdx = TIERS.indexOf(tier);
+  labels.forEach((el, i) => {
+    if (i === tierIdx) el.classList.add('active');
+    else el.classList.remove('active');
+  });
   goToStep('result');
   track('Quiz Result Shown', { score: total, tier: tier.name });
   if (window.fbq) fbq('trackCustom', 'QuizCompleted', { score: total, tier: tier.name });
