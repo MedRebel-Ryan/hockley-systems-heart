@@ -941,7 +941,12 @@ s.parentNode.insertBefore(b, s);})(window.lintrk);
     </div>
 
     <div class="extra-actions">
-      <a href="/Hockley_3MinBrief.pdf" download class="pdf-link" onclick="if(window.fbq){fbq('trackCustom','DownloadPDF',{guide:'brief'});} if(window.lintrk){lintrk('track',{conversion_id:0});} if(window.plausible){plausible('PDF Download',{props:{guide:'brief'}});}">
+      <a href="/quiz/" class="pdf-link" style="background:var(--navy); color:white; border-color:var(--navy);" onclick="if(window.plausible){plausible('Quiz Link Clicked',{props:{from:'brief'}});}">
+        <span class="pdf-icon" style="color:var(--cyan);">→</span>
+        <span><strong style="color:white;">Take the 2-min Leadership Diagnostic</strong> &nbsp;·&nbsp; Are you leading your practice or just reacting to it?</span>
+      </a>
+      <br>
+      <a href="/Hockley_3MinBrief.pdf" download class="pdf-link" style="margin-top:10px;" onclick="if(window.fbq){fbq('trackCustom','DownloadPDF',{guide:'brief'});} if(window.lintrk){lintrk('track',{conversion_id:0});} if(window.plausible){plausible('PDF Download',{props:{guide:'brief'}});}">
         <span class="pdf-icon">↓</span>
         <span><strong>Download the PDF</strong> &nbsp;·&nbsp; Save it, print it, share it with your office manager</span>
       </a>
