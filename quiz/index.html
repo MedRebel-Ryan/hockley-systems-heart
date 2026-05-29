@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Are You Leading Your Practice, or Just Reacting to It? | The Leadership Diagnostic | MedRebel</title>
+<title>Are You Leading Your Practice, or Just Reacting to It? | The Leadership Quiz | MedRebel</title>
 <meta name="description" content="An 8-question diagnostic for independent dental practice owners. Find out if you are leading the practice, or just reacting to it. 2 minutes.">
 <link rel="canonical" href="https://hockley.medrebel.io/quiz/">
 
@@ -570,7 +570,7 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
   <!-- Intro -->
   <section class="step active intro" id="step-intro">
     <div class="intro-hero" role="img" aria-label="Independent dentist with patient"></div>
-    <div class="intro-eyebrow">The Leadership Diagnostic</div>
+    <div class="intro-eyebrow">The Leadership Quiz</div>
     <h1>Are You <span class="accent">Leading</span> Your Practice, or Just <span class="accent">Reacting</span> to It?</h1>
     <p class="lead">8 honest questions. 2 minutes. A clear answer.</p>
     <p class="sub">Most independent practice owners say they want to lead. Most spend their day reacting. This diagnostic shows you where the gap is, and where it costs you the most.</p>
@@ -870,7 +870,7 @@ function submitEmail(ev) {
   const formData = new FormData(form);
   formData.append('score', answers.reduce((s,v) => s + (v||0), 0));
   formData.append('answers', JSON.stringify(answers));
-  formData.append('subject', 'New Leadership Diagnostic Submission');
+  formData.append('subject', 'New Leadership Quiz Submission');
   // Web3Forms endpoint
   fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
     .then(r => r.json())
