@@ -63,7 +63,11 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
   html, body { min-height: 100vh; }
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background: white;
+    background: #FBFAF6;
+    background-image:
+      radial-gradient(ellipse 800px 500px at 15% 10%, rgba(0, 180, 216, 0.06) 0%, transparent 60%),
+      radial-gradient(ellipse 600px 400px at 90% 80%, rgba(0, 144, 173, 0.05) 0%, transparent 55%);
+    background-attachment: fixed;
     color: var(--gray-800);
     -webkit-font-smoothing: antialiased;
     -webkit-text-size-adjust: 100%;
@@ -137,6 +141,49 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
     vertical-align: middle;
     margin-right: 12px;
   }
+  .intro-hero {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+    background-image: url('hero.jpeg');
+    background-size: cover;
+    background-position: center 35%;
+    box-shadow: 0 20px 60px -20px rgba(13, 27, 42, 0.25), 0 0 0 1px rgba(0, 180, 216, 0.12);
+    position: relative;
+    overflow: hidden;
+  }
+  .intro-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 0%, transparent 65%, rgba(13, 27, 42, 0.18) 100%);
+    pointer-events: none;
+  }
+  .result-hero {
+    width: 100%;
+    aspect-ratio: 21 / 9;
+    border-radius: 14px;
+    background-size: cover;
+    background-position: center 35%;
+    margin-bottom: 24px;
+    box-shadow: 0 16px 40px -18px rgba(13, 27, 42, 0.3);
+    position: relative;
+    overflow: hidden;
+    background-color: var(--navy);
+  }
+  .result-hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(13, 27, 42, 0.35) 100%);
+    pointer-events: none;
+  }
+  .result-hero.firefighting { background-image: url('tier-1-firefighting.jpeg'); }
+  .result-hero.transition { background-image: url('tier-2-transition.jpeg'); }
+  .result-hero.mature { background-image: url('tier-3-mature.jpeg'); }
+  .result-hero.leadership { background-image: url('tier-4-leadership.jpeg'); }
   .intro h1 {
     font-size: 56px;
     font-weight: 900;
@@ -489,6 +536,8 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
     .app { padding: 36px 18px 56px; }
     .topbar { padding: 12px 16px; }
     .progress { margin: 0 14px; }
+    .intro-hero { margin-bottom: 24px; border-radius: 10px; }
+    .result-hero { margin-bottom: 18px; border-radius: 10px; aspect-ratio: 16 / 9; }
     .intro h1 { font-size: 36px; letter-spacing: -1.2px; }
     .intro p.lead { font-size: 17px; }
     .q-text { font-size: 21px; }
@@ -520,6 +569,7 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
 
   <!-- Intro -->
   <section class="step active intro" id="step-intro">
+    <div class="intro-hero" role="img" aria-label="Independent dentist with patient"></div>
     <div class="intro-eyebrow">The Leadership Diagnostic</div>
     <h1>Are You <span class="accent">Leading</span> Your Practice, or Just <span class="accent">Reacting</span> to It?</h1>
     <p class="lead">8 honest questions. 2 minutes. A clear answer.</p>
@@ -555,6 +605,7 @@ window._linkedin_data_partner_ids.push(_linkedin_partner_id);
 
   <!-- Result -->
   <section class="step result" id="step-result">
+    <div class="result-hero" id="resultHero" role="img" aria-label="Tier visualization"></div>
     <div class="result-eyebrow">Your Diagnostic Result</div>
     <div class="scorecard">
       <div class="scorecard-row">
@@ -682,21 +733,25 @@ const TIERS = [
   {
     min: 0, max: 8,
     name: "Firefighting Mode",
+    cls: "firefighting",
     desc: "<strong>Your practice runs on heroic effort.</strong> You have become the unofficial operating system. On some level you already know it. The good news: there is a way out, and it starts with making leadership the day job again, not the after-hours job."
   },
   {
     min: 9, max: 15,
     name: "In Transition",
+    cls: "transition",
     desc: "<strong>You have some systems in place, but the foundation has gaps that show up at the worst times.</strong> One staff absence, one missed handoff, one billing question can cascade through your day. The next step is closing those gaps with infrastructure, not more personal effort."
   },
   {
     min: 16, max: 21,
     name: "Operationally Mature",
+    cls: "mature",
     desc: "<strong>Most pieces work. Your team can carry meaningful weight.</strong> There is room to push from operational competence into true leadership: more predictability, less reactive firefighting, more time spent leading and less time spent managing. This is where the real compounding starts."
   },
   {
     min: 22, max: 24,
     name: "Leadership Mode",
+    cls: "leadership",
     desc: "<strong>You are leading the practice, not running it.</strong> Most independent owners are not here. The question is no longer how to fix what is broken. It is how to compound what is working, and how to defend it from corporate consolidation."
   }
 ];
@@ -787,6 +842,9 @@ function showResult() {
   document.getElementById('resultScore').textContent = total;
   document.getElementById('resultTier').textContent = tier.name + '.';
   document.getElementById('resultDesc').innerHTML = tier.desc;
+  // Set the tier hero image
+  const hero = document.getElementById('resultHero');
+  hero.className = 'result-hero ' + tier.cls;
   // Animate the scorecard bar to user's position (0–24 scale)
   const pct = Math.max(2, Math.round((total / 24) * 100));
   setTimeout(() => {
